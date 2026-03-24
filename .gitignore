@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# AnyLaneNET – project-specific ignores
+checkpoints/*.pth
+logs/
+data/raw/
+data/processed/
