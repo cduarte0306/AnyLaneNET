@@ -6,6 +6,18 @@ __pycache__/
 # C extensions
 *.so
 
+# Video files
+*.MOV
+*.avi
+*.mp4
+
+# Others
+*.Identifier
+
+# Models
+*.pth
+*.onnx
+
 # Distribution / packaging
 .Python
 build/
@@ -205,3 +217,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# AnyLaneNET – project-specific ignores
+checkpoints/*.pth
+logs/
+data/raw/
+data/processed/

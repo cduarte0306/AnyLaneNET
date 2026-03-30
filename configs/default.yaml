@@ -1,0 +1,32 @@
+# ---------------------------------------------------------------------------
+# Model
+# ---------------------------------------------------------------------------
+model:
+  num_classes: 1        # 1 = binary lane / no-lane
+  pretrained: true      # use ImageNet-pretrained ResNet-18 encoder
+
+# ---------------------------------------------------------------------------
+# Data
+# ---------------------------------------------------------------------------
+data:
+  images_dir: data/raw/images
+  masks_dir:  data/raw/masks
+  img_height: 720
+  img_width:  1280
+  val_split:  0.15      # fraction of dataset used for validation
+  num_workers: 4        # DataLoader worker processes
+
+# ---------------------------------------------------------------------------
+# Training
+# ---------------------------------------------------------------------------
+training:
+  epochs:       50
+  batch_size:   8
+  lr:           1.0e-4
+  weight_decay: 1.0e-4
+
+# ---------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------
+checkpoint_dir: checkpoints
+log_dir:        logs

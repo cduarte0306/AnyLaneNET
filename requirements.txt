@@ -1,0 +1,44 @@
+# ==============================================================================
+# AnyLaneNET – requirements for local GPU training on Linux
+#
+# Install with:
+#   pip install -r requirements.txt
+#
+# PyTorch with CUDA 12.1 – change the index URL if your CUDA version differs:
+#   CUDA 11.8 → https://download.pytorch.org/whl/cu118
+#   CUDA 12.1 → https://download.pytorch.org/whl/cu121
+#   CPU-only  → https://download.pytorch.org/whl/cpu
+# ==============================================================================
+
+# ---- Deep learning framework (CUDA 12.1 wheels) ----
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch>=2.2.0
+torchvision>=0.17.0
+
+# ---- Image I/O & processing ----
+opencv-python>=4.9.0.80
+Pillow>=10.2.0
+
+# ---- Data augmentation ----
+albumentations>=1.4.0
+
+# ---- Scientific computing ----
+numpy>=1.26.0
+scikit-learn>=1.4.0
+
+# ---- Training utilities ----
+tqdm>=4.66.0
+tensorboard>=2.16.0
+
+# ---- Configuration ----
+PyYAML>=6.0.1
+
+# ---- Testing ----
+pytest>=8.0.0
+pytest-cov>=4.1.0
+
+# ---- Code quality (optional, recommended) ----
+ruff>=0.3.0
+
+# ONNX 
+onnxscript
