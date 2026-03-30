@@ -39,3 +39,6 @@ pytest-cov>=4.1.0
 
 # ---- Code quality (optional, recommended) ----
 ruff>=0.3.0
+
+# ONNX 
+onnxscript

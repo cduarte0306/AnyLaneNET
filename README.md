@@ -68,20 +68,25 @@ pip install -e ".[dev]"
 
 ---
 
-## Prepare your data
+## Usage
 
-Place your data under `data/raw/`:
+### 1. Generate training data
 
+Extract RGB frames and binary lane masks from a video:
+
+```bash
+python src/datagen.py path/to/video.MOV
 ```
-data/raw/images/frame_0001.png   ← RGB frame
-data/raw/masks/frame_0001.png    ← Binary mask (0 = background, 255 = lane)
+
+Add `--preview` to see the overlay as it generates:
+
+```bash
+python src/datagen.py path/to/video.MOV --preview
 ```
 
-Image and mask filenames **must match**.
+This saves paired images and masks to `data/raw/images/` and `data/raw/masks/`.
 
----
-
-## Train
+### 2. Train
 
 ```bash
 python src/train.py --config configs/default.yaml
@@ -92,6 +97,39 @@ Monitor training in TensorBoard:
 ```bash
 tensorboard --logdir logs
 ```
+
+### 3. Inference
+
+Run the trained model on a video:
+
+```bash
+python src/inference.py path/to/video.MOV
+```
+
+Adjust detection confidence with `--threshold` (default 0.5):
+
+```bash
+python src/inference.py path/to/video.MOV --threshold 0.3
+```
+
+Press `q` to quit the preview window.
+
+### 4. Export to ONNX
+
+Export the trained model for deployment (e.g. TensorRT on Jetson):
+
+```bash
+python src/export.py
+```
+
+This produces `lanenet.onnx`. To build a TensorRT engine on the target device:
+
+```bash
+/usr/src/tensorrt/bin/trtexec --onnx=lanenet.onnx --saveEngine=lanenet.engine --fp16
+```
+
+# Release to repo
+`gh release create v1.0 lanenet.onnx --title "v1.0" --notes "Initial lane detection model"`
 
 ---
 

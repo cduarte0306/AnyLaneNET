@@ -6,6 +6,18 @@ __pycache__/
 # C extensions
 *.so
 
+# Video files
+*.MOV
+*.avi
+*.mp4
+
+# Others
+*.Identifier
+
+# Models
+*.pth
+*.onnx
+
 # Distribution / packaging
 .Python
 build/

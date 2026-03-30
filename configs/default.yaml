@@ -11,8 +11,8 @@ model:
 data:
   images_dir: data/raw/images
   masks_dir:  data/raw/masks
-  img_height: 360
-  img_width:  640
+  img_height: 720
+  img_width:  1280
   val_split:  0.15      # fraction of dataset used for validation
   num_workers: 4        # DataLoader worker processes
 
